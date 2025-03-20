@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Servicio para la base de datos MySQL
   db:
@@ -7,16 +5,14 @@ services:
     container_name: laravel_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ojostronica
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
-    volumes:
-      - db_data:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: secret
     ports:
       - "3306:3306"
-    networks:
-      - laravel_network
+    volumes:
+      - db_data:/var/lib/mysql
 
   # Servicio para la aplicación Laravel
   app:
@@ -25,21 +21,20 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     restart: always
-    working_dir: /var/www/html
+    ports:
+      - "8000:80"  # Cambia 8000 a 3000 si prefieres usar el puerto 3000
     volumes:
       - .:/var/www/html
-    ports:
-      - "8000:8000"
     depends_on:
       - db
-    networks:
-      - laravel_network
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE:  ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
 
-# Volumen para persistir los datos de la base de datos
+
 volumes:
   db_data:
-
-# Red para conectar los servicios
-networks:
-  laravel_network:
-    driver: bridge
