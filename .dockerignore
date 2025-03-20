@@ -1,0 +1,40 @@
+# Ignorar el directorio de vendor (se instalará dentro del contenedor)
+/vendor
+
+# Ignorar el archivo de entorno local
+.env
+
+# Ignorar el directorio de node_modules (si usas Node.js)
+/node_modules
+
+# Ignorar archivos de configuración de IDE
+.idea
+.vscode
+
+# Ignorar archivos de log
+/storage/logs/*
+
+# Ignorar archivos de caché
+/bootstrap/cache/*
+
+# Ignorar archivos de pruebas
+/tests
+
+# Ignorar archivos de Git
+.git
+.gitignore
+
+# Ignorar archivos de Docker
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Ignorar archivos de Composer
+composer.lock
+composer.phar
+
+# Ignorar archivos de npm/yarn
+package-lock.json
+yarn.lock
+
+# Ignorar archivos de configuración local
+docker-compose.override.yml
