@@ -67,7 +67,7 @@
             <div class="container-fluid row py-5">
                 <div class="col-8">
                     <h1 class="display-5 fw-bold">Ojostrónica</h1>
-                    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+                    <p class="col-md-8 fs-4">App - reservar aula</p>
                 </div>
                 <div class="col-4">
                     <img  src="./imgs/logo2.png" alt="" width="450" srcset="">
